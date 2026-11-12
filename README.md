@@ -15,7 +15,7 @@ Las soluciones de referencia se publican **después** de cada encuentro.
 
 ## Cómo usarlo
 
-**Sin instalar nada:** las páginas de cada encuentro se pueden abrir en el navegador desde el enlace de GitHub Pages del curso: [enlace de GitHub Pages].
+**Sin instalar nada:** las páginas de cada encuentro se pueden abrir en el navegador desde el enlace de GitHub Pages del curso: [páginas del encuentro 1](https://maikoldiaz.github.io/estudia-frontend-web/encuentros/01-tareas-de-una-pagina/).
 
 **En tu computador:** botón verde **Code → Download ZIP**, descomprime y abre cualquier `.html` con doble clic. Más adelante, cuando trabajemos con Git:
 
