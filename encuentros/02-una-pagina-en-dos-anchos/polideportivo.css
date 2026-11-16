@@ -1,0 +1,85 @@
+/* Polideportivo La Ladera */
+body {
+  width: 900px;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #222;
+}
+
+header {
+  background: #2a6f97;
+  color: #fff;
+  padding: 16px 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+}
+
+main {
+  padding: 0 20px;
+}
+
+.foto {
+  width: 900px;
+}
+
+.clase {
+  display: inline-block;
+  vertical-align: top;
+  width: 260px;
+  padding: 16px;
+  border: 3px solid #2a6f97;
+  margin: 0 4px 10px 0;
+}
+
+.cupos {
+  font-weight: bold;
+  color: #2a6f97;
+}
+
+.dia {
+  border-bottom: 1px solid #ccc;
+  padding: 6px 0;
+}
+
+.dia h3 {
+  margin: 0;
+}
+
+.dia p {
+  margin: 0;
+}
+
+input,
+select {
+  display: block;
+  width: 450px;
+  margin-bottom: 10px;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding: 10px 20px;
+  color: #666;
+}
+
+/* Arreglo para el celular de la coordinadora */
+@media (max-width: 375px) {
+  body {
+    width: 375px;
+  }
+}

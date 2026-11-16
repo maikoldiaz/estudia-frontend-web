@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feria de Emprendedores de Belén</title>
+  <link rel="stylesheet" href="feria-fija.css">
+</head>
+<body>
+  <header>
+    <h1>Feria de Emprendedores de Belén</h1>
+    <p>Último sábado de cada mes · Parque principal · 9:00 a. m. a 4:00 p. m.</p>
+    <nav>
+      <ul>
+        <li><a href="#puestos">Puestos</a></li>
+        <li><a href="#horario">Horario</a></li>
+        <li><a href="#inscripcion">Inscribe tu emprendimiento</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <img class="foto" src="feria.svg" alt="Toldos de colores de la feria en el parque">
+
+    <section id="puestos">
+      <h2>Puestos de este mes</h2>
+      <article class="puesto">
+        <h3>Arepas La Tía Gloria</h3>
+        <p>Arepas de chócolo y de queso hechas en el puesto.</p>
+        <p class="precio">Desde $4.000</p>
+      </article>
+      <article class="puesto">
+        <h3>Tejidos Manos de Belén</h3>
+        <p>Mochilas y bufandas tejidas a mano por un grupo de vecinas.</p>
+        <p class="precio">Desde $25.000</p>
+      </article>
+      <article class="puesto">
+        <h3>Huerta El Rodeo</h3>
+        <p>Plántulas de hortalizas, aromáticas y abono de lombriz.</p>
+        <p class="precio">Desde $3.000</p>
+      </article>
+    </section>
+
+    <section id="horario">
+      <h2>Horario</h2>
+      <ul>
+        <li>9:00 a. m. · Apertura de puestos</li>
+        <li>11:00 a. m. · Taller de empaques reciclados</li>
+        <li>2:00 p. m. · Música en vivo</li>
+        <li>4:00 p. m. · Cierre</li>
+      </ul>
+    </section>
+
+    <section id="inscripcion">
+      <h2>Inscribe tu emprendimiento</h2>
+      <form>
+        <label for="nombre">Nombre del emprendimiento</label>
+        <input id="nombre" name="nombre" type="text">
+        <label for="categoria">Qué vendes</label>
+        <select id="categoria" name="categoria">
+          <option>Comida</option>
+          <option>Artesanías</option>
+          <option>Plantas</option>
+        </select>
+        <button type="submit">Quiero un puesto</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Junta organizadora de la feria · Inscripciones hasta el miércoles anterior</p>
+  </footer>
+</body>
+</html>

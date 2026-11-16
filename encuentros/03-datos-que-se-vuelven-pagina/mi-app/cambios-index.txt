@@ -1,0 +1,6 @@
+<!-- Cambio 1: dentro de <head>, debajo de la línea de estilos.css -->
+<script src="app.js" defer></script>
+
+<!-- Cambio 2: las tarjetas que escribiste a mano se reemplazan por un contenedor vacío.
+     JavaScript crea las tarjetas a partir de tus datos. -->
+<div class="tarjetas" id="lista"></div>

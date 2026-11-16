@@ -1,0 +1,76 @@
+/* ===== 1. Cajas: el ancho incluye relleno y borde ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== 2. Base: pantalla angosta (celular) ===== */
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #222;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+nav a {
+  color: #fff;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tarjetas {
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta {
+  padding: 1rem;
+  border: 2px solid #999;
+}
+
+input {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin-bottom: 0.75rem;
+  font: inherit;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+}
+
+/* ===== 3. Pantalla amplia =====
+   Cambia 48rem por el ancho en que TU contenido tiene espacio.
+   Encuéntralo estirando la ventana, no buscando el tamaño de un celular. */
+@media (min-width: 48rem) {
+  .tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

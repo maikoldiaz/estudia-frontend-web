@@ -1,0 +1,92 @@
+/* Feria · estilos (los mismos del encuentro 2) */
+
+/* 1. El ancho que escribo incluye el relleno y el borde */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Base: pensada primero para una pantalla angosta */
+body {
+  max-width: 60rem;          /* no crece sin límite en pantallas grandes */
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;           /* el tamaño que la persona eligió en su navegador */
+  line-height: 1.5;
+  color: #222;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;             /* Flexbox: elementos en una fila */
+  flex-wrap: wrap;           /* si no caben, bajan a la siguiente línea */
+  gap: 0.5rem 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+.foto {
+  width: 100%;               /* nunca más ancha que su contenedor */
+  height: auto;
+}
+
+#lista-puestos {
+  display: grid;             /* Grid: cuadrícula de filas y columnas */
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.puesto {
+  padding: 1rem;
+  border: 2px solid #e76f51;
+}
+
+.precio {
+  font-weight: bold;
+  color: #b8452a;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin-bottom: 0.75rem;
+  font: inherit;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+  color: #555;
+}
+
+/* 3. Cuando hay espacio para tres tarjetas cómodas, tres columnas */
+@media (min-width: 48rem) {
+  #lista-puestos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vacio {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border: 2px dashed #999;
+  color: #555;
+}

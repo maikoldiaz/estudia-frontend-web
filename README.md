@@ -9,6 +9,8 @@ Repositorio del curso. Aquí encuentras el código de cada encuentro y el espaci
 ```
 encuentros/                  Código de cada encuentro (demo y práctica)
   01-tareas-de-una-pagina/
+  02-una-pagina-en-dos-anchos/
+  03-datos-que-se-vuelven-pagina/
 ```
 
 Las soluciones de referencia se publican **después** de cada encuentro.

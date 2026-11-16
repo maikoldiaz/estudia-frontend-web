@@ -1,0 +1,69 @@
+<!doctype html>
+<!--
+  MI BRIEF
+  Persona: quién usa la página y desde qué aparato.
+  Tarea 1: cómo empieza → cómo termina.
+  Tarea 2: cómo empieza → cómo termina.
+  Contenido: lo que la persona necesita ver para hacerlas.
+  Fuera: lo que dejo para después.
+  Caso 1: en ___ px, hago ___ y espero ver ___.
+  Caso 2: en ___ px, hago ___ y espero ver ___.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <!-- Sin esta línea, el celular muestra la página "de escritorio" en miniatura -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nombre de mi página</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Nombre de mi página</h1>
+    <p>Una frase: quién la usa y para qué.</p>
+    <nav>
+      <ul>
+        <!-- Un enlace por tarea. El texto dice a dónde lleva. -->
+        <li><a href="#tarea-1">Tarea 1</a></li>
+        <li><a href="#tarea-2">Tarea 2</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- El id de cada sección es el mismo que va después del # en el enlace -->
+    <section id="tarea-1">
+      <h2>Tarea 1</h2>
+      <!-- Varias piezas del mismo tipo (productos, actividades, servicios): un article por pieza -->
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Pieza 1</h3>
+          <p>Un dato que la persona necesita.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Pieza 2</h3>
+          <p>Un dato que la persona necesita.</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Pieza 3</h3>
+          <p>Un dato que la persona necesita.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tarea-2">
+      <h2>Tarea 2</h2>
+      <!-- El formulario que usarás más adelante. Cada campo con su label. -->
+      <form>
+        <label for="campo-1">Qué se pide aquí</label>
+        <input id="campo-1" name="campo-1" type="text">
+        <button type="submit">Texto que diga qué pasa al pulsar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Nombre de mi página</p>
+  </footer>
+</body>
+</html>
