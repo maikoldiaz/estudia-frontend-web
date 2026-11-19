@@ -53,3 +53,8 @@ Hagan la página angosta y ancha.
 4. Pruébala en 360 y en 1280. Cambia el número de la media query por el ancho en que **tu contenido** tiene espacio.
 
 Guarda (Ctrl+S) y recarga (F5) después de cada cambio. Si el CSS no se aplica: ¿están los dos archivos en la misma carpeta y con el nombre exacto?
+
+## Solución de referencia
+
+- [`solucion/polideportivo-revisado.html`](solucion/polideportivo-revisado.html) con [`polideportivo-revisado.css`](solucion/polideportivo-revisado.css): el polideportivo ya corregido. Ábrelo en 360 y en 1280 y compáralo con el tuyo. Antes de copiar nada, mira los comentarios del CSS: cada bloque dice qué arregla.
+- [`solucion/ejemplo-mi-base/`](solucion/ejemplo-mi-base/): un ejemplo de la plantilla ya llena, con persona, tareas, casos y estilos. Sirve como guía, no como respuesta: tu página es tuya.

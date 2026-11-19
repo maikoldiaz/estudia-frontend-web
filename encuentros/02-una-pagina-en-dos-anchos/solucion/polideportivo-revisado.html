@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polideportivo La Ladera · Clases gratuitas</title>
+  <link rel="stylesheet" href="polideportivo-revisado.css">
+</head>
+<body>
+  <header>
+    <div class="contenedor">
+      <h1>Polideportivo La Ladera</h1>
+      <p>Clases gratuitas para todas las edades</p>
+      <nav>
+        <ul>
+          <li><a href="#clases">Clases</a></li>
+          <li><a href="#semana">Semana</a></li>
+          <li><a class="destacado" href="#inscripcion">Inscripción</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <img class="foto" src="cancha.svg" alt="Cancha múltiple techada del polideportivo">
+
+    <section id="clases">
+      <h2>Clases</h2>
+      <div class="clases">
+        <article class="clase">
+          <h3>Natación para principiantes</h3>
+          <p>De 8 a 14 años. Traer gorro y toalla.</p>
+          <p class="cupos">12 cupos</p>
+        </article>
+        <article class="clase">
+          <h3>Baloncesto mixto</h3>
+          <p>Desde 15 años. No se necesita experiencia.</p>
+          <p class="cupos">20 cupos</p>
+        </article>
+        <article class="clase">
+          <h3>Aeróbicos</h3>
+          <p>Personas adultas y mayores. Ropa cómoda.</p>
+          <p class="cupos">30 cupos</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="semana">
+      <h2>Semana</h2>
+      <div class="dias">
+        <div class="dia"><h3>Lunes</h3><p>Natación 3:00&nbsp;p.&nbsp;m.</p></div>
+        <div class="dia"><h3>Martes</h3><p>Aeróbicos 7:00&nbsp;a.&nbsp;m.</p></div>
+        <div class="dia"><h3>Miércoles</h3><p>Baloncesto 5:00&nbsp;p.&nbsp;m.</p></div>
+        <div class="dia"><h3>Jueves</h3><p>Natación 3:00&nbsp;p.&nbsp;m.</p></div>
+        <div class="dia"><h3>Viernes</h3><p>Aeróbicos 7:00&nbsp;a.&nbsp;m.</p></div>
+        <div class="dia"><h3>Sábado</h3><p>Baloncesto 9:00&nbsp;a.&nbsp;m.</p></div>
+      </div>
+    </section>
+
+    <section id="inscripcion">
+      <h2>Inscripción</h2>
+      <form class="formulario">
+        <div class="campo">
+          <label for="persona">Nombre de quien se inscribe</label>
+          <input id="persona" name="persona" type="text" autocomplete="name" required>
+        </div>
+        <div class="campo">
+          <label for="clase">Clase</label>
+          <select id="clase" name="clase" required>
+            <option value="">Elige una clase</option>
+            <option>Natación para principiantes</option>
+            <option>Baloncesto mixto</option>
+            <option>Aeróbicos</option>
+          </select>
+        </div>
+        <button type="submit">Apartar mi cupo</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>Polideportivo La Ladera · Lunes a sábado, 6:00 a. m. a 9:00 p. m.</p>
+    </div>
+  </footer>
+</body>
+</html>

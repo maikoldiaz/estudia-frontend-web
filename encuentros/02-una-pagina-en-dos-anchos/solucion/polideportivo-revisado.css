@@ -1,0 +1,242 @@
+/* Polideportivo La Ladera · versión revisada */
+
+/* ===== 1. Cajas: el ancho incluye relleno y borde ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== 2. Base: pantalla angosta (celular) ===== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #1f2a33;
+  background: #f3f6f9;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+}
+
+/* Encabezado: ocupa todo el ancho; su contenido no pasa de 56rem */
+header {
+  background: #1d4f6e;
+  color: #fff;
+}
+
+.contenedor {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header .contenedor {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+}
+
+header p {
+  margin: 0 0 1rem;
+  color: #d6e6f0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #fff;
+  color: #1d4f6e;
+}
+
+/* El enlace a la tarea principal resalta */
+nav a.destacado {
+  background: #f4a261;
+  border-color: #f4a261;
+  color: #1f2a33;
+}
+
+main {
+  padding-bottom: 2rem;
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+}
+
+section {
+  margin-top: 2.5rem;
+}
+
+section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+}
+
+/* Tarjetas de clases */
+.clases {
+  display: grid;
+  gap: 1rem;
+}
+
+.clase {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-top: 6px solid #2a6f97;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.clase h3 {
+  margin: 0 0 0.5rem;
+}
+
+.clase p {
+  margin: 0 0 1rem;
+}
+
+/* margin-top: auto empuja los cupos al fondo: quedan alineados aunque el texto mida distinto */
+.clase .cupos {
+  align-self: flex-start;
+  margin: auto 0 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: #e1eef6;
+  color: #1d4f6e;
+  font-weight: bold;
+}
+
+/* Días de la semana */
+.dias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.dia {
+  padding: 0.75rem;
+  border-left: 4px solid #2a6f97;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.dia h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  color: #1d4f6e;
+}
+
+.dia p {
+  margin: 0;
+}
+
+/* Formulario: un campo debajo del otro, con aire entre ellos */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 28rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;       /* fácil de tocar con el dedo */
+  padding: 0.5rem 0.75rem;
+  border: 2px solid #7a8a99;
+  border-radius: 0.375rem;
+  background: #fff;
+  font: inherit;
+}
+
+button {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  background: #2a6f97;
+  color: #fff;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4f6e;
+}
+
+/* El foco se ve al moverse con Tab */
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid #f4a261;
+  outline-offset: 2px;
+}
+
+footer {
+  padding: 1.5rem 0;
+  background: #1f2a33;
+  color: #d6e6f0;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ===== 3. Pantalla amplia: cuando caben tres tarjetas sin apretar el texto ===== */
+@media (min-width: 46rem) {
+  header h1 {
+    font-size: 2.25rem;
+  }
+
+  .clases {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

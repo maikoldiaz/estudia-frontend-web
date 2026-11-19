@@ -1,0 +1,83 @@
+/* ===== 1. Cajas: el ancho incluye relleno y borde ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== 2. Base: pantalla angosta (celular) ===== */
+body {
+  max-width: 60rem;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #222;
+}
+
+header {
+  background: #1d3557;
+  color: #fff;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+.tarjetas {
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta {
+  padding: 1rem;
+  border: 2px solid #e76f51;
+}
+
+.precio {
+  font-weight: bold;
+  color: #b8452a;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin-bottom: 0.75rem;
+  font: inherit;
+}
+
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+  color: #555;
+}
+
+/* ===== 3. Pantalla amplia =====
+   A partir de 48rem caben tres tarjetas sin que el nombre del puesto se parta. */
+@media (min-width: 48rem) {
+  .tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

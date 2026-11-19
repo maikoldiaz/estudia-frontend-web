@@ -1,0 +1,81 @@
+<!doctype html>
+<!--
+  MI BRIEF
+  Persona: Marta, vende empanadas en Belén y quiere un puesto en la feria. Entra desde su celular.
+  Tarea 1: abre la página → sabe qué puestos hay este mes y si ya hay alguien vendiendo comida.
+  Tarea 2: toca "Inscribe tu emprendimiento" → envía el formulario con su nombre, lo que vende y su celular.
+  Contenido: fecha, lugar y horario de la feria; los puestos de este mes con lo que venden y su precio;
+             el formulario de inscripción; la fecha límite para inscribirse.
+  Fuera: pagos en línea, mapa del parque, galería de fotos y el mensaje de confirmación (llega con JavaScript).
+  Caso 1: en 360 px, toco "Inscribe tu emprendimiento" en el menú y espero ver el formulario completo
+          sin mover la pantalla de lado.
+  Caso 2: en 1280 px, abro la página y espero ver los tres puestos en una sola fila, cada uno con nombre y precio.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feria de Emprendedores de Belén</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>Feria de Emprendedores de Belén</h1>
+    <p>Último sábado de cada mes · Parque principal · 9:00 a. m. a 4:00 p. m.</p>
+    <nav>
+      <ul>
+        <li><a href="#puestos">Puestos de este mes</a></li>
+        <li><a href="#inscripcion">Inscribe tu emprendimiento</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="puestos">
+      <h2>Puestos de este mes</h2>
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <h3>Arepas La Tía Gloria</h3>
+          <p>Comida · Arepas de chócolo y de queso hechas en el puesto.</p>
+          <p class="precio">Desde $4.000</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Tejidos Manos de Belén</h3>
+          <p>Artesanías · Mochilas y bufandas tejidas a mano.</p>
+          <p class="precio">Desde $25.000</p>
+        </article>
+        <article class="tarjeta">
+          <h3>Huerta El Rodeo</h3>
+          <p>Plantas · Plántulas de hortalizas, aromáticas y abono de lombriz.</p>
+          <p class="precio">Desde $3.000</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="inscripcion">
+      <h2>Inscribe tu emprendimiento</h2>
+      <p>Inscripciones hasta el miércoles antes de la feria.</p>
+      <form>
+        <label for="nombre">Nombre del emprendimiento</label>
+        <input id="nombre" name="nombre" type="text">
+
+        <label for="categoria">Qué vendes</label>
+        <select id="categoria" name="categoria">
+          <option>Comida</option>
+          <option>Artesanías</option>
+          <option>Plantas</option>
+        </select>
+
+        <label for="celular">Celular de contacto</label>
+        <input id="celular" name="celular" type="tel">
+
+        <button type="submit">Quiero un puesto</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Junta organizadora de la Feria de Emprendedores de Belén</p>
+  </footer>
+</body>
+</html>
