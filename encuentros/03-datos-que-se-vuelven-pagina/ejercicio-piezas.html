@@ -18,8 +18,8 @@
         <pre>const sala = "Sala 1";
 sala = "Sala 2";</pre>
         <button type="button" data-run="0">Ejecutar</button>
-        <pre>let precios = [2500, 6000, 3000];
-precios = precios.filter((p) =&gt; p &lt; 5000);
+        <pre>let precios = [9000, 12000, 5000];
+precios = precios.filter((p) =&gt; p &lt; 10000);
 precios;</pre>
         <button type="button" data-run="1">Ejecutar</button>
         <p class="out" data-out="0-1" aria-live="polite"></p>
@@ -37,7 +37,7 @@ conIva(4000);</pre>
 
       <section class="card">
         <h2>3 · Desestructurar</h2>
-        <pre>const producto = { nombre: "Pandebono", precio: 3000, categoria: "Panadería" };
+        <pre>const producto = { nombre: "Siphon", precio: 14000, reserva: true };
 const { nombre, precio } = producto;
 nombre;</pre>
         <button type="button" data-run="3">Ejecutar</button>
@@ -47,8 +47,8 @@ nombre;</pre>
 
       <section class="card">
         <h2>4 · Plantilla</h2>
-        <pre>const precio = 3000;
-`Desde $${precio}`;</pre>
+        <pre>const precio = 5000;
+`$${precio} la taza`;</pre>
         <button type="button" data-run="4">Ejecutar</button>
         <p class="out" data-out="4" aria-live="polite"></p>
         <p class="after" hidden>Comillas invertidas (<code>`</code>) y huecos <code>${ }</code> donde va un dato.</p>
@@ -68,10 +68,10 @@ pintar(productos);</pre>
     // Each button runs the snippet shown above it, exactly as written.
     const snippets = [
       () => { const sala = "Sala 1"; sala = "Sala 2"; return sala; },
-      () => { let precios = [2500, 6000, 3000]; precios = precios.filter((p) => p < 5000); return precios; },
+      () => { let precios = [9000, 12000, 5000]; precios = precios.filter((p) => p < 10000); return precios; },
       () => { const conIva = (precio) => precio * 1.19; return conIva(4000); },
-      () => { const producto = { nombre: "Pandebono", precio: 3000, categoria: "Panadería" }; const { nombre, precio } = producto; return nombre; },
-      () => { const precio = 3000; return `Desde $${precio}`; },
+      () => { const producto = { nombre: "Siphon", precio: 14000, reserva: true }; const { nombre, precio } = producto; return nombre; },
+      () => { const precio = 5000; return `$${precio} la taza`; },
     ];
     const outputFor = (i) => document.querySelector(`[data-out="${i}"]`) || document.querySelector('[data-out="0-1"]');
     document.querySelectorAll("[data-run]").forEach((button) => button.addEventListener("click", () => {

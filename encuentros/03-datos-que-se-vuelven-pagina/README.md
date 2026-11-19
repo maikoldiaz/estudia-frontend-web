@@ -4,7 +4,7 @@
 
 | Archivo | Qué es |
 |---|---|
-| [`cafe-datos.html`](cafe-datos.html) | Café La Ladera: los productos de la carta salen de una lista de datos (`cafe-datos.js`) |
+| [`cafe-datos.html`](cafe-datos.html) | Café La Ladera: las preparaciones de la carta salen de una lista de datos (`cafe-datos.js`) |
 | [`ejercicio-codigo-cafe.html`](ejercicio-codigo-cafe.html) | El código de la carta al lado de la página: entrada, transformación y salida |
 | [`ejercicio-piezas.html`](ejercicio-piezas.html) | Cuatro piezas del JavaScript: let y const, flecha, desestructurar y plantilla. Predice y ejecuta |
 | [`ejercicio-textcontent.html`](ejercicio-textcontent.html) | Un nombre con etiquetas: textContent o innerHTML |

@@ -10,12 +10,12 @@
 <body>
   <header>
     <h1>Café La Ladera</h1>
-    <p>Café de montaña · Barrio Belén · Lunes a sábado, 7:00 a. m. a 7:00 p. m.</p>
+    <p>Café de especialidad · Barrio Belén · Todos los días, 8:00 a. m. a 8:00 p. m.</p>
     <nav>
       <ul>
         <li><a href="#carta">Carta</a></li>
         <li><a href="#horario">Horario</a></li>
-        <li><a href="#sugerencias">Sugiere una bebida</a></li>
+        <li><a href="#reserva">Reserva</a></li>
       </ul>
     </nav>
   </header>
@@ -31,31 +31,34 @@
     <section id="horario">
       <h2>Horario</h2>
       <ul>
-        <li>7:00 a. m. · Abrimos con el primer tinto</li>
-        <li>10:00 a. m. · Sale el pandebono del horno</li>
-        <li>3:00 p. m. · Cata de café de la semana</li>
-        <li>7:00 p. m. · Cierre</li>
+        <li>Todos los días · 8:00 a. m. a 8:00 p. m.</li>
+        <li>Preparaciones con reserva · máximo 50 tazas al día entre todas</li>
+        <li>Prensa francesa · sin reserva, hasta que cerremos</li>
+        <li>Sábado 10:00 a. m. · Cata semanal: 8 cupos, con reserva, $45.000 por persona</li>
       </ul>
     </section>
 
-    <section id="sugerencias">
-      <h2>Sugiere una bebida</h2>
+    <section id="reserva">
+      <h2>Reserva tu preparación</h2>
+      <p>Máximo 2 tazas por persona al día.</p>
       <form>
-        <label for="nombre">Nombre de la bebida</label>
+        <label for="nombre">Tu nombre</label>
         <input id="nombre" name="nombre" type="text">
-        <label for="categoria">Tipo</label>
-        <select id="categoria" name="categoria">
-          <option>Bebidas calientes</option>
-          <option>Bebidas frías</option>
-          <option>Panadería</option>
+        <label for="metodo">Preparación</label>
+        <select id="metodo" name="metodo">
+          <option>V60</option>
+          <option>Kyoto drip</option>
+          <option>Siphon</option>
         </select>
-        <button type="submit">Enviar sugerencia</button>
+        <label for="tazas">Tazas</label>
+        <input id="tazas" name="tazas" type="number" min="1" max="2" value="1">
+        <button type="submit">Reservar</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>Café La Ladera · Tostamos cada semana el café que servimos</p>
+    <p>Café La Ladera · Café de especialidad, tostado cada semana</p>
   </footer>
 </body>
 </html>

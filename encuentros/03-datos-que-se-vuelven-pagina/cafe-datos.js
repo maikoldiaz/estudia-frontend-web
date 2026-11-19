@@ -1,10 +1,10 @@
-// ===== 1. Datos: lo que cambia cada temporada =====
+// ===== 1. Datos: lo que ofrece el café =====
 // let: más adelante podríamos reemplazar la lista completa.
 let productos = [
-  { nombre: "Tinto de la casa", descripcion: "Café de origen de Urrao, colado en el momento.", precio: 2500, categoria: "Bebidas calientes" },
-  { nombre: "Capuchino", descripcion: "Espresso doble con leche espumada y canela.", precio: 6000, categoria: "Bebidas calientes" },
-  { nombre: "Pandebono", descripcion: "Recién horneado, con queso costeño y almidón de yuca.", precio: 3000, categoria: "Panadería" },
-  { nombre: "Café frío con panela", descripcion: "Café filtrado en frío con panela y hielo.", precio: 7500, categoria: "Bebidas frías" },
+  { nombre: "V60", descripcion: "Filtrado a mano, taza limpia y aromática. Con reserva.", precio: 9000, reserva: true },
+  { nombre: "Kyoto drip", descripcion: "Goteo en frío durante horas. Con reserva.", precio: 12000, reserva: true },
+  { nombre: "Siphon", descripcion: "Preparado al vacío frente a ti. Con reserva.", precio: 14000, reserva: true },
+  { nombre: "Prensa francesa", descripcion: "Sin reserva y sin límite, hasta que cerremos.", precio: 5000, reserva: false },
 ];
 
 // ===== 2. Dónde se muestran =====
@@ -25,7 +25,7 @@ const crearTarjeta = ({ nombre, descripcion, precio }) => {
 
   const valor = document.createElement("p");
   valor.className = "precio";
-  valor.textContent = `Desde $${precio.toLocaleString("es-CO")}`; // plantilla literal
+  valor.textContent = `$${precio.toLocaleString("es-CO")} la taza`; // plantilla literal
 
   tarjeta.append(titulo, texto, valor);
   return tarjeta;
@@ -37,7 +37,7 @@ const pintar = (datos) => {
   if (datos.length === 0) {
     const aviso = document.createElement("p");
     aviso.className = "vacio";
-    aviso.textContent = "No hay productos para mostrar. Sugiere uno en el formulario de abajo.";
+    aviso.textContent = "No hay preparaciones para mostrar. Pregunta en la barra qué hay hoy.";
     lista.append(aviso);
     return;
   }
