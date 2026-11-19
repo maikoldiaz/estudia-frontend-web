@@ -10,14 +10,14 @@
   <header><b>Un nombre con etiquetas</b><a href="./">Material del encuentro</a></header>
   <main>
     <h1>textContent o innerHTML</h1>
-    <p class="lead">Una persona se inscribe en la feria y escribe el nombre de su emprendimiento. Elige un nombre, <span class="predict">predice qué mostrará cada tarjeta</span> y después pulsa «Pintar».</p>
+    <p class="lead">Un cliente del café sugiere una bebida en el formulario y escribe su nombre. Elige un nombre, <span class="predict">predice qué mostrará cada tarjeta</span> y después pulsa «Pintar».</p>
 
     <section class="card">
-      <h2>Lo que escribió la persona</h2>
+      <h2>Lo que escribió el cliente</h2>
       <p>
-        <button type="button" data-name="&lt;i&gt;Arepas&lt;/i&gt;">&lt;i&gt;Arepas&lt;/i&gt;</button>
-        <button type="button" data-name="Dulces de &lt;b&gt;Doña Rosa&lt;/b&gt;">Dulces de &lt;b&gt;Doña Rosa&lt;/b&gt;</button>
-        <button type="button" data-name="Tejidos &lt;u&gt;Manos de Belén&lt;/u&gt;">Tejidos &lt;u&gt;Manos de Belén&lt;/u&gt;</button>
+        <button type="button" data-name="&lt;i&gt;Mokaccino&lt;/i&gt;">&lt;i&gt;Mokaccino&lt;/i&gt;</button>
+        <button type="button" data-name="Tinto de &lt;b&gt;la abuela&lt;/b&gt;">Tinto de &lt;b&gt;la abuela&lt;/b&gt;</button>
+        <button type="button" data-name="Aromática &lt;u&gt;de la huerta&lt;/u&gt;">Aromática &lt;u&gt;de la huerta&lt;/u&gt;</button>
       </p>
       <pre id="chosen">const nombre = "…";</pre>
       <button type="button" id="paint">Pintar</button>
@@ -28,7 +28,7 @@
         <h2><span class="tag good">textContent</span></h2>
         <pre>titulo.textContent = nombre;</pre>
         <h3 class="out" id="with-text" aria-live="polite"></h3>
-        <p class="after" hidden>Lo escribe <b>como texto</b>: se ve lo que la persona escribió, con etiquetas y todo.</p>
+        <p class="after" hidden>Lo escribe <b>como texto</b>: se ve lo que el cliente escribió, con etiquetas y todo.</p>
       </section>
       <section class="card">
         <h2><span class="tag bad">innerHTML</span></h2>
@@ -38,10 +38,10 @@
       </section>
     </div>
     <section class="card">
-      <h2>Ahora en la feria</h2>
-      <p>Abre <a href="feria-datos.html" target="_blank" rel="noopener">la feria</a>, pulsa F12 → <b>Console</b>, predice y ejecuta:</p>
-      <pre>puestos.push({ nombre: "&lt;i&gt;Arepas&lt;/i&gt;", descripcion: "Prueba", precio: 1 });
-pintar(puestos);</pre>
+      <h2>Ahora en la carta</h2>
+      <p>Abre <a href="cafe-datos.html" target="_blank" rel="noopener">la carta</a>, pulsa F12 → <b>Console</b>, predice y ejecuta:</p>
+      <pre>productos.push({ nombre: "&lt;i&gt;Mokaccino&lt;/i&gt;", descripcion: "Prueba", precio: 1 });
+pintar(productos);</pre>
     </section>
     <p class="card after" hidden><b>Regla:</b> texto que escribe una persona → siempre <code>textContent</code>.</p>
   </main>

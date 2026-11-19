@@ -1,4 +1,4 @@
-/* Feria · estilos (los mismos del encuentro 2) */
+/* Café · estilos (los mismos del encuentro 2, con los colores del café) */
 
 /* 1. El ancho que escribo incluye el relleno y el borde */
 *,
@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  background: #1d3557;
+  background: #4a2c1d;
   color: #fff;
   padding: 1rem;
 }
@@ -46,20 +46,20 @@ main {
   height: auto;
 }
 
-#lista-puestos {
+#lista-productos {
   display: grid;             /* Grid: cuadrícula de filas y columnas */
   grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-.puesto {
+.producto {
   padding: 1rem;
-  border: 2px solid #e76f51;
+  border: 2px solid #a0643c;
 }
 
 .precio {
   font-weight: bold;
-  color: #b8452a;
+  color: #7a3e1d;
 }
 
 input,
@@ -79,7 +79,7 @@ footer {
 
 /* 3. Cuando hay espacio para tres tarjetas cómodas, tres columnas */
 @media (min-width: 48rem) {
-  #lista-puestos {
+  #lista-productos {
     grid-template-columns: repeat(3, 1fr);
   }
 }

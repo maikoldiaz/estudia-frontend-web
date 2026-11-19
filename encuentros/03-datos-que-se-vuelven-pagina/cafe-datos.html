@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café La Ladera</title>
+  <link rel="stylesheet" href="cafe.css">
+  <script src="cafe-datos.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Café La Ladera</h1>
+    <p>Café de montaña · Barrio Belén · Lunes a sábado, 7:00 a. m. a 7:00 p. m.</p>
+    <nav>
+      <ul>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#horario">Horario</a></li>
+        <li><a href="#sugerencias">Sugiere una bebida</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <img class="foto" src="cafe.svg" alt="Una taza de café humeante sobre la barra, con montañas al fondo">
+
+    <section id="carta">
+      <h2>Nuestra carta</h2>
+      <div id="lista-productos"></div>
+    </section>
+
+    <section id="horario">
+      <h2>Horario</h2>
+      <ul>
+        <li>7:00 a. m. · Abrimos con el primer tinto</li>
+        <li>10:00 a. m. · Sale el pandebono del horno</li>
+        <li>3:00 p. m. · Cata de café de la semana</li>
+        <li>7:00 p. m. · Cierre</li>
+      </ul>
+    </section>
+
+    <section id="sugerencias">
+      <h2>Sugiere una bebida</h2>
+      <form>
+        <label for="nombre">Nombre de la bebida</label>
+        <input id="nombre" name="nombre" type="text">
+        <label for="categoria">Tipo</label>
+        <select id="categoria" name="categoria">
+          <option>Bebidas calientes</option>
+          <option>Bebidas frías</option>
+          <option>Panadería</option>
+        </select>
+        <button type="submit">Enviar sugerencia</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Café La Ladera · Tostamos cada semana el café que servimos</p>
+  </footer>
+</body>
+</html>

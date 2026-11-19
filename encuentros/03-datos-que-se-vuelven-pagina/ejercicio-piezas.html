@@ -18,7 +18,7 @@
         <pre>const sala = "Sala 1";
 sala = "Sala 2";</pre>
         <button type="button" data-run="0">Ejecutar</button>
-        <pre>let precios = [4000, 25000, 3000];
+        <pre>let precios = [2500, 6000, 3000];
 precios = precios.filter((p) =&gt; p &lt; 5000);
 precios;</pre>
         <button type="button" data-run="1">Ejecutar</button>
@@ -37,8 +37,8 @@ conIva(4000);</pre>
 
       <section class="card">
         <h2>3 · Desestructurar</h2>
-        <pre>const puesto = { nombre: "Huerta El Rodeo", precio: 3000, categoria: "Plantas" };
-const { nombre, precio } = puesto;
+        <pre>const producto = { nombre: "Pandebono", precio: 3000, categoria: "Panadería" };
+const { nombre, precio } = producto;
 nombre;</pre>
         <button type="button" data-run="3">Ejecutar</button>
         <p class="out" data-out="3" aria-live="polite"></p>
@@ -56,21 +56,21 @@ nombre;</pre>
     </div>
 
     <section class="card">
-      <h2>Ahora en la feria</h2>
-      <p>Abre <a href="feria-datos.html" target="_blank" rel="noopener">la feria</a>, pulsa F12 → <b>Console</b> y predice antes de cada Enter:</p>
+      <h2>Ahora en la carta</h2>
+      <p>Abre <a href="cafe-datos.html" target="_blank" rel="noopener">la carta</a>, pulsa F12 → <b>Console</b> y predice antes de cada Enter:</p>
       <pre>lista = 5;</pre>
-      <pre>puestos.push({ nombre: "Prueba", descripcion: "Un puesto nuevo", precio: 1000 });
-pintar(puestos);</pre>
-      <p>En la feria, <code>lista</code> es <code>const</code> y <code>puestos</code> es una lista: ¿qué cambia entre reemplazar y agregar?</p>
+      <pre>productos.push({ nombre: "Prueba", descripcion: "Un producto nuevo", precio: 1000 });
+pintar(productos);</pre>
+      <p>En la carta, <code>lista</code> es <code>const</code> y <code>productos</code> es una lista: ¿qué cambia entre reemplazar y agregar?</p>
     </section>
   </main>
   <script>
     // Each button runs the snippet shown above it, exactly as written.
     const snippets = [
       () => { const sala = "Sala 1"; sala = "Sala 2"; return sala; },
-      () => { let precios = [4000, 25000, 3000]; precios = precios.filter((p) => p < 5000); return precios; },
+      () => { let precios = [2500, 6000, 3000]; precios = precios.filter((p) => p < 5000); return precios; },
       () => { const conIva = (precio) => precio * 1.19; return conIva(4000); },
-      () => { const puesto = { nombre: "Huerta El Rodeo", precio: 3000, categoria: "Plantas" }; const { nombre, precio } = puesto; return nombre; },
+      () => { const producto = { nombre: "Pandebono", precio: 3000, categoria: "Panadería" }; const { nombre, precio } = producto; return nombre; },
       () => { const precio = 3000; return `Desde $${precio}`; },
     ];
     const outputFor = (i) => document.querySelector(`[data-out="${i}"]`) || document.querySelector('[data-out="0-1"]');

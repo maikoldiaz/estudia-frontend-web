@@ -4,12 +4,12 @@
 
 | Archivo | Qué es |
 |---|---|
-| [`feria-datos.html`](feria-datos.html) | Feria de Emprendedores de Belén: los puestos salen de una lista de datos (`feria-datos.js`) |
-| [`ejercicio-codigo-feria.html`](ejercicio-codigo-feria.html) | El código de la feria al lado de la página: entrada, transformación y salida |
+| [`cafe-datos.html`](cafe-datos.html) | Café La Ladera: los productos de la carta salen de una lista de datos (`cafe-datos.js`) |
+| [`ejercicio-codigo-cafe.html`](ejercicio-codigo-cafe.html) | El código de la carta al lado de la página: entrada, transformación y salida |
 | [`ejercicio-piezas.html`](ejercicio-piezas.html) | Cuatro piezas del JavaScript: let y const, flecha, desestructurar y plantilla. Predice y ejecuta |
 | [`ejercicio-textcontent.html`](ejercicio-textcontent.html) | Un nombre con etiquetas: textContent o innerHTML |
-| [`feria-null.html`](feria-null.html) | La misma feria, sin puestos. ¿Qué le pasó? (pista: F12 → Console) |
-| [`ejercicio-defer.html`](ejercicio-defer.html) | Las dos ferias lado a lado, sin y con `defer` |
+| [`cafe-null.html`](cafe-null.html) | La misma carta, sin productos. ¿Qué le pasó? (pista: F12 → Console) |
+| [`ejercicio-defer.html`](ejercicio-defer.html) | Las dos cartas lado a lado, sin y con `defer` |
 | [`biblioteca.html`](biblioteca.html) | Práctica: Biblioteca de la Junta · Robledo |
 | [`mi-app/`](mi-app/) | Plantilla para tu página: `app.js` y los cambios en tu `index.html` |
 
