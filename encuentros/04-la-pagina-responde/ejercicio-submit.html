@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Con y sin preventDefault</title>
+  <link rel="stylesheet" href="ejercicio.css">
+  <style> iframe { height: 300px; } </style>
+</head>
+<body>
+  <header><b>Con y sin preventDefault</b><a href="./">Material del encuentro</a></header>
+  <main>
+    <h1>¿Quién manda cuando envías un formulario?</h1>
+    <p class="lead">Los dos formularios tienen el mismo listener de <code>submit</code>, que anota el nombre. Solo cambia una línea. <span class="predict">Antes de pulsar «Reservar» en cada uno, predice qué verás en «Anotados».</span></p>
+    <div class="grid">
+      <section class="card">
+        <h2><span class="tag bad">Sin preventDefault</span></h2>
+        <pre>formulario.addEventListener("submit", (evento) =&gt; {
+  anotados.push(nombre);
+  pintar();
+});</pre>
+        <iframe src="mini-submit.html?modo=sin" title="Formulario sin preventDefault"></iframe>
+      </section>
+      <section class="card">
+        <h2><span class="tag good">Con preventDefault</span></h2>
+        <pre>formulario.addEventListener("submit", (evento) =&gt; {
+  evento.preventDefault();
+  anotados.push(nombre);
+  pintar();
+});</pre>
+        <iframe src="mini-submit.html?modo=con" title="Formulario con preventDefault"></iframe>
+      </section>
+    </div>
+    <section class="card">
+      <h2>Después de probar los dos</h2>
+      <button type="button" id="ver">Ver la explicación</button>
+      <div class="after" hidden>
+        <p><b>Sin preventDefault</b>, el navegador hace lo que hace siempre con un formulario: lo envía a la dirección de la página (mira el <code>?nombre=Laura</code>) y la <b>vuelve a cargar</b>. Lo que JavaScript anotó se pierde y el contador de cargas sube.</p>
+        <p><b>Con preventDefault</b>, le dices al navegador «no hagas lo de siempre; de esto me encargo yo». La página no se recarga y lo anotado se queda.</p>
+        <p>Úsalo cuando tu JavaScript se encarga del formulario. Si no hay JavaScript que se encargue, el navegador lo envía como siempre.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.getElementById("ver").addEventListener("click", () => {
+      document.querySelectorAll(".after").forEach((p) => { p.hidden = false; });
+    });
+  </script>
+</body>
+</html>

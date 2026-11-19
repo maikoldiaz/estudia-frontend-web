@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca de la Junta · Aparta un libro</title>
+  <link rel="stylesheet" href="biblioteca.css">
+  <script src="biblioteca-apartar.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Biblioteca de la Junta · Robledo</h1>
+    <p>Préstamo de libros para el barrio · Martes a sábado, 2:00 a 6:00 p. m.</p>
+  </header>
+
+  <main>
+    <section id="apartar">
+      <h2>Aparta un libro</h2>
+      <p>Lo apartas aquí y lo recoges en la biblioteca con tu documento.</p>
+      <form id="form-apartar">
+        <label for="lector">Tu nombre</label>
+        <input id="lector" name="lector" type="text" autocomplete="off">
+        <label for="libro">Libro</label>
+        <select id="libro" name="libro"></select>
+        <button type="submit">Apartar</button>
+      </form>
+      <p id="aviso" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="apartados-hoy">
+      <h2>Apartados hoy</h2>
+      <ul id="apartados"></ul>
+    </section>
+
+    <section id="catalogo">
+      <h2>Libros para préstamo</h2>
+      <p id="conteo"></p>
+      <div id="libros"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Junta de Acción Comunal · Salón comunal, segundo piso</p>
+  </footer>
+</body>
+</html>

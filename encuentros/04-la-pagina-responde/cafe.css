@@ -1,0 +1,163 @@
+/* Café · estilos (los mismos del encuentro 2, con los colores del café) */
+
+/* 1. El ancho que escribo incluye el relleno y el borde */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Base: pensada primero para una pantalla angosta */
+body {
+  max-width: 60rem;          /* no crece sin límite en pantallas grandes */
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;           /* el tamaño que la persona eligió en su navegador */
+  line-height: 1.5;
+  color: #222;
+}
+
+header {
+  background: #4a2c1d;
+  color: #fff;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;             /* Flexbox: elementos en una fila */
+  flex-wrap: wrap;           /* si no caben, bajan a la siguiente línea */
+  gap: 0.5rem 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+}
+
+main {
+  padding: 0 1rem;
+}
+
+.foto {
+  width: 100%;               /* nunca más ancha que su contenedor */
+  height: auto;
+}
+
+#lista-productos {
+  display: grid;             /* Grid: cuadrícula de filas y columnas */
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.producto {
+  padding: 1rem;
+  border: 2px solid #a0643c;
+}
+
+.precio {
+  font-weight: bold;
+  color: #7a3e1d;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  margin-bottom: 0.75rem;
+  font: inherit;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+  color: #555;
+}
+
+/* 3. Cuando hay espacio para tres tarjetas cómodas, tres columnas */
+@media (min-width: 48rem) {
+  #lista-productos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vacio {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border: 2px dashed #999;
+  color: #555;
+}
+
+/* 4. Encuentro 4: filtros, botones, formulario y mensajes */
+button {
+  font: inherit;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid #4a2c1d;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #4a2c1d;
+  cursor: pointer;
+}
+
+button:hover,
+button[aria-pressed="true"] {
+  background: #4a2c1d;
+  color: #fff;
+}
+
+#filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.producto button {
+  margin-top: 0.25rem;
+}
+
+form {
+  max-width: 30rem;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border: 3px solid #b3261e;   /* el color acompaña al mensaje, no lo reemplaza */
+}
+
+#mensaje {
+  min-height: 1.5em;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+#mensaje:empty {
+  padding: 0;
+}
+
+#mensaje.error {
+  background: #fdecea;
+  color: #8c1d18;
+  border-left: 6px solid #b3261e;
+}
+
+#mensaje.ok {
+  background: #eaf4e4;
+  color: #2d5a12;
+  border-left: 6px solid #3d6300;
+}
+
+#mensaje.info {
+  background: #f3e4cf;
+  color: #4a2c1d;
+  border-left: 6px solid #a0643c;
+}
+
+#reservas ul {
+  padding-left: 1.25rem;
+}

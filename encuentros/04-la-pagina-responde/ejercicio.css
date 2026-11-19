@@ -1,0 +1,22 @@
+/* Shared styles for the one-exercise pages of this encounter */
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #16181d; background: #f4f4f4; line-height: 1.45; }
+header { background: #000; color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+header a { color: #ff7c1a; font-weight: bold; }
+main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+h1 { font-size: 1.6rem; margin: 8px 0 4px; }
+.lead { color: #5b6170; margin: 0 0 16px; }
+.card { background: #fff; border: 1px solid #d9d9d9; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+.card h2 { font-size: 1.15rem; margin: 0 0 8px; }
+pre, code { font-family: Consolas, "DejaVu Sans Mono", monospace; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; border-left: 5px solid #ff7c1a; padding: 10px 14px; overflow-x: auto; font-size: 14px; margin: 8px 0; }
+button { font: inherit; font-weight: bold; padding: 8px 14px; border-radius: 8px; border: 2px solid #16181d; background: #fff; cursor: pointer; }
+button:hover, button[aria-pressed="true"] { background: #16181d; color: #fff; }
+.out { min-height: 2.4em; padding: 10px 14px; border: 2px dashed #d9d9d9; border-radius: 8px; font-size: 1.05rem; }
+.out.error { border-color: #cb318e; color: #cb318e; }
+.after[hidden] { display: none; }
+.predict { color: #cb318e; font-weight: bold; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
+iframe { width: 100%; height: 460px; border: 1px solid #d9d9d9; border-radius: 8px; background: #fff; }
+.tag { display: inline-block; font-size: 13px; font-weight: bold; padding: 2px 8px; border-radius: 6px; color: #fff; }
+.tag.bad { background: #cb318e; } .tag.good { background: #3d6300; } .tag.part { background: #ff7c1a; }

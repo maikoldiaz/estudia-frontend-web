@@ -1,0 +1,9 @@
+<!-- Encima o debajo de <div class="tarjetas" id="lista"></div>.
+     Cambia los textos de la etiqueta y del botón por los de tu página
+     (por ejemplo, «Nombre de la actividad» y «Agregar actividad»). -->
+<form id="formulario">
+  <label for="campo">Nombre</label>
+  <input id="campo" name="campo" type="text" autocomplete="off">
+  <button type="submit">Agregar</button>
+</form>
+<p id="mensaje" role="status" aria-live="polite"></p>

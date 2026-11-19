@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario de prueba</title>
+  <link rel="stylesheet" href="ejercicio.css">
+  <style>
+    body { background: #fff; }
+    main { padding: 12px; }
+    label, input { display: block; margin-bottom: 8px; font: inherit; }
+    input { width: 100%; padding: 6px; }
+    .small { color: #5b6170; font-size: 14px; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <form id="form">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" name="nombre" type="text" value="Laura">
+      <button type="submit">Reservar</button>
+    </form>
+    <p><b>Anotados:</b> <span id="anotados">nadie</span></p>
+    <p class="small">Esta página se ha cargado <b id="cargas"></b> veces.</p>
+    <p class="small">Dirección: <span id="direccion"></span></p>
+  </main>
+  <script>
+    // modo=con: the listener calls preventDefault. modo=sin: it does not, so the browser reloads the page.
+    const modo = new URLSearchParams(location.search).get("modo") || "con";
+    const clave = "cargas-" + modo;
+    let cargas = 0;
+    try { cargas = Number(sessionStorage.getItem(clave) || 0) + 1; sessionStorage.setItem(clave, cargas); } catch (e) { cargas = 1; }
+    document.getElementById("cargas").textContent = cargas;
+    document.getElementById("direccion").textContent = location.pathname.split("/").pop() + location.search;
+
+    const anotados = [];
+    document.getElementById("form").addEventListener("submit", (evento) => {
+      if (modo === "con") evento.preventDefault();
+      anotados.push(document.getElementById("nombre").value.trim() || "(vacío)");
+      document.getElementById("anotados").textContent = anotados.join(", ");
+    });
+    if (modo === "sin") {
+      // Keep the mode when the browser sends the form and reloads this page.
+      const oculto = document.createElement("input");
+      oculto.type = "hidden"; oculto.name = "modo"; oculto.value = "sin";
+      document.getElementById("form").append(oculto);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Un listener por botón o uno en el contenedor</title>
+  <link rel="stylesheet" href="ejercicio.css">
+  <style>
+    .botones { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 12px; }
+    .nuevo { border-style: dashed; }
+  </style>
+</head>
+<body>
+  <header><b>Un listener por botón o uno en el contenedor</b><a href="./">Material del encuentro</a></header>
+  <main>
+    <h1>¿Quién escucha a la preparación nueva?</h1>
+    <p class="lead">Las dos cartas se ven iguales. A la izquierda, cada botón tiene su propio listener. A la derecha, hay uno solo en el contenedor. <span class="predict">Pulsa «Agregar Chemex» en las dos y, antes de pulsar «Reservar Chemex», predice cuál responde.</span></p>
+    <div class="grid">
+      <section class="card">
+        <h2><span class="tag bad">Un listener por botón</span></h2>
+        <pre>document.querySelectorAll(".reservar")
+  .forEach((boton) =&gt; {
+    boton.addEventListener("click", elegir);
+  });</pre>
+        <div class="botones" id="cartaA"></div>
+        <button type="button" class="nuevo" data-agregar="A">Agregar Chemex (preparación nueva)</button>
+        <p class="out" id="logA" aria-live="polite"></p>
+        <p>Listeners registrados: <b id="cuentaA"></b></p>
+      </section>
+      <section class="card">
+        <h2><span class="tag good">Uno en el contenedor</span></h2>
+        <pre>carta.addEventListener("click", (evento) =&gt; {
+  const boton = evento.target.closest(".reservar");
+  if (!boton) return;
+  elegir(boton);
+});</pre>
+        <div class="botones" id="cartaB"></div>
+        <button type="button" class="nuevo" data-agregar="B">Agregar Chemex (preparación nueva)</button>
+        <p class="out" id="logB" aria-live="polite"></p>
+        <p>Listeners registrados: <b id="cuentaB"></b></p>
+      </section>
+    </div>
+    <section class="card">
+      <h2>Después de probar los dos</h2>
+      <button type="button" id="ver">Ver la explicación</button>
+      <div class="after" hidden>
+        <p>A la izquierda, los listeners se conectaron <b>al cargar la página</b>, botón por botón. El botón de Chemex llegó después: nadie lo conectó y por eso no responde.</p>
+        <p>A la derecha, el listener está en el <b>contenedor</b>, que siempre existe. El clic de cualquier botón de adentro llega hasta él (el evento «sube»), y <code>closest(".reservar")</code> dice cuál fue. Sirve igual para los botones que se crean después, como las tarjetas que vuelve a crear <code>pintar</code>.</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Same cards in both columns; only the way of listening changes.
+    const iniciales = ["V60", "Kyoto drip", "Siphon"];
+    const crearBoton = (nombre) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "reservar"; b.dataset.nombre = nombre; b.textContent = `Reservar ${nombre}`;
+      return b;
+    };
+    const elegir = (log) => (boton) => { log.textContent = `Respondió: elegiste ${boton.dataset.nombre}.`; };
+
+    const cartaA = document.getElementById("cartaA"), cartaB = document.getElementById("cartaB");
+    iniciales.forEach((n) => { cartaA.append(crearBoton(n)); cartaB.append(crearBoton(n)); });
+
+    // A: one listener per button, connected once at load.
+    const elegirA = elegir(document.getElementById("logA"));
+    let cuentaA = 0;
+    cartaA.querySelectorAll(".reservar").forEach((boton) => {
+      boton.addEventListener("click", () => elegirA(boton));
+      cuentaA += 1;
+    });
+    document.getElementById("cuentaA").textContent = cuentaA;
+
+    // B: one listener on the container.
+    const elegirB = elegir(document.getElementById("logB"));
+    cartaB.addEventListener("click", (evento) => {
+      const boton = evento.target.closest(".reservar");
+      if (!boton) return;
+      elegirB(boton);
+    });
+    document.getElementById("cuentaB").textContent = 1;
+
+    document.querySelectorAll("[data-agregar]").forEach((b) => b.addEventListener("click", () => {
+      const carta = b.dataset.agregar === "A" ? cartaA : cartaB;
+      if (carta.querySelector('[data-nombre="Chemex"]')) return;
+      carta.append(crearBoton("Chemex"));
+      document.getElementById("log" + b.dataset.agregar).textContent = "Apareció Chemex. Ahora pulsa «Reservar Chemex».";
+    }));
+    document.getElementById("ver").addEventListener("click", () => {
+      document.querySelectorAll(".after").forEach((p) => { p.hidden = false; });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café La Ladera · Reservas</title>
+  <link rel="stylesheet" href="cafe.css">
+  <script src="cafe-repetido.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Café La Ladera</h1>
+    <p>Café de especialidad · Barrio Belén · Todos los días, 8:00 a. m. a 8:00 p. m.</p>
+    <nav>
+      <ul>
+        <li><a href="#carta">Carta</a></li>
+        <li><a href="#reserva">Reserva</a></li>
+        <li><a href="#reservas">Reservas de hoy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <img class="foto" src="cafe.svg" alt="Una taza de café humeante sobre la barra, con montañas al fondo">
+
+    <section id="carta">
+      <h2>Nuestra carta</h2>
+      <div id="filtros">
+        <button type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+        <button type="button" data-filtro="reserva" aria-pressed="false">Con reserva</button>
+        <button type="button" data-filtro="sin-reserva" aria-pressed="false">Sin reserva</button>
+      </div>
+      <div id="lista-productos"></div>
+    </section>
+
+    <section id="reserva">
+      <h2>Reserva tu preparación</h2>
+      <p>Máximo 2 tazas por persona al día. Entre todas las preparaciones con reserva hacemos 50 tazas al día.</p>
+      <form id="form-reserva">
+        <label for="nombre">Tu nombre</label>
+        <input id="nombre" name="nombre" type="text" autocomplete="off">
+        <label for="metodo">Preparación</label>
+        <select id="metodo" name="metodo">
+          <option>V60</option>
+          <option>Kyoto drip</option>
+          <option>Siphon</option>
+        </select>
+        <label for="tazas">Tazas</label>
+        <input id="tazas" name="tazas" type="number" value="1">
+        <button type="submit">Reservar</button>
+      </form>
+      <p id="mensaje" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="reservas">
+      <h2>Reservas de hoy</h2>
+      <p id="quedan"></p>
+      <ul id="lista-reservas"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Café La Ladera · Las reservas de esta página son un ensayo: quedan en tu navegador y no llegan al café.</p>
+  </footer>
+</body>
+</html>
