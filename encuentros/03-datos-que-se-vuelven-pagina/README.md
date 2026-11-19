@@ -10,30 +10,30 @@
 | [`ejercicio-textcontent.html`](ejercicio-textcontent.html) | Un nombre con etiquetas: textContent o innerHTML |
 | [`cafe-null.html`](cafe-null.html) | La misma carta, sin productos. ¿Qué le pasó? (pista: F12 → Console) |
 | [`ejercicio-defer.html`](ejercicio-defer.html) | Las dos cartas lado a lado, sin y con `defer` |
-| [`biblioteca.html`](biblioteca.html) | Práctica: Biblioteca de la Junta · Robledo |
+| [`cafe-granos.html`](cafe-granos.html) | Práctica: Café La Ladera · café en grano |
 | [`mi-app/`](mi-app/) | Plantilla para tu página: `app.js` y los cambios en tu `index.html` |
 
 ## Cómo abrir la consola
 
 Pulsa **F12** y elige la pestaña **Console** (Consola). Escribe una línea y pulsa Enter. Si el navegador pide escribir «allow pasting» antes de pegar, escríbelo una vez. En el celular no hay consola: esta parte se hace en el computador.
 
-## Práctica: la biblioteca
+## Práctica: el café en grano
 
-Abre `biblioteca.html` y su consola. **Antes de pulsar Enter, cada quien dice su predicción.**
+Abre `cafe-granos.html` y su consola. **Antes de pulsar Enter, cada quien dice su predicción.**
 
-1. **Filtrar.** Predigan cuántos libros quedan y luego ejecuten:
+1. **Filtrar.** Predigan cuántos cafés quedan y luego ejecuten:
    ```js
-   pintar(libros.filter((l) => l.disponible))
-   pintar(libros.filter((l) => l.categoria === "Infantil"))
+   pintar(granos.filter((g) => g.disponible))
+   pintar(granos.filter((g) => g.tueste === "Oscuro"))
    ```
-2. **Cambiar un dato.** Ejecuten `libros[0].disponible = false`. ¿Cambió la página? ¿Qué hace falta para que cambie? Vuelvan a filtrar los disponibles: ¿cuántos quedan ahora?
+2. **Cambiar un dato.** Ejecuten `granos[0].disponible = false`. ¿Cambió la página? ¿Qué hace falta para que cambie? Vuelvan a filtrar los disponibles: ¿cuántos quedan ahora?
 3. **La lista vacía.** Ejecuten:
    ```js
-   pintar(libros.filter((l) => l.categoria === "Poesía"))
+   pintar(granos.filter((g) => g.tueste === "Claro"))
    ```
    ¿Qué ve la persona? ¿Qué le falta a la página? Escriban el mensaje que la ayudaría: qué pasó y qué puede hacer.
 
-**Reto:** escriban el filtro para «libros infantiles disponibles» y predigan el resultado. Pista: `&&` significa «y».
+**Reto:** escriban el filtro para «cafés de tueste oscuro disponibles» y predigan el resultado. Pista: `&&` significa «y».
 
 ## Tu página
 

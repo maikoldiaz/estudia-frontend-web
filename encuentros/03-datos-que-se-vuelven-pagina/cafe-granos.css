@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background: #2a6f4e;
+  background: #4a2c1d;
   color: #fff;
   padding: 1rem;
 }
@@ -23,17 +23,17 @@ main {
   padding: 0 1rem;
 }
 
-#libros {
+#granos {
   display: grid;
   gap: 1rem;
 }
 
-.libro {
+.bolsa {
   padding: 1rem;
-  border: 2px solid #2a6f4e;
+  border: 2px solid #4a2c1d;
 }
 
-.libro h3 {
+.bolsa h3 {
   margin: 0 0 0.25rem;
 }
 
@@ -41,7 +41,7 @@ main {
   font-weight: bold;
 }
 
-.prestado {
+.agotada {
   border-color: #bbb;
   color: #666;
 }
@@ -53,13 +53,13 @@ footer {
 }
 
 @media (min-width: 40rem) {
-  #libros {
+  #granos {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 58rem) {
-  #libros {
+  #granos {
     grid-template-columns: repeat(3, 1fr);
   }
 }
