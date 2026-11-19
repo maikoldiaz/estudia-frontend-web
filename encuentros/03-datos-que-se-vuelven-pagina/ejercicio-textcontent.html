@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Un nombre con etiquetas</title>
+  <link rel="stylesheet" href="ejercicio.css">
+</head>
+<body>
+  <header><b>Un nombre con etiquetas</b><a href="./">Material del encuentro</a></header>
+  <main>
+    <h1>textContent o innerHTML</h1>
+    <p class="lead">Una persona se inscribe en la feria y escribe el nombre de su emprendimiento. Elige un nombre, <span class="predict">predice qué mostrará cada tarjeta</span> y después pulsa «Pintar».</p>
+
+    <section class="card">
+      <h2>Lo que escribió la persona</h2>
+      <p>
+        <button type="button" data-name="&lt;i&gt;Arepas&lt;/i&gt;">&lt;i&gt;Arepas&lt;/i&gt;</button>
+        <button type="button" data-name="Dulces de &lt;b&gt;Doña Rosa&lt;/b&gt;">Dulces de &lt;b&gt;Doña Rosa&lt;/b&gt;</button>
+        <button type="button" data-name="Tejidos &lt;u&gt;Manos de Belén&lt;/u&gt;">Tejidos &lt;u&gt;Manos de Belén&lt;/u&gt;</button>
+      </p>
+      <pre id="chosen">const nombre = "…";</pre>
+      <button type="button" id="paint">Pintar</button>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2><span class="tag good">textContent</span></h2>
+        <pre>titulo.textContent = nombre;</pre>
+        <h3 class="out" id="with-text" aria-live="polite"></h3>
+        <p class="after" hidden>Lo escribe <b>como texto</b>: se ve lo que la persona escribió, con etiquetas y todo.</p>
+      </section>
+      <section class="card">
+        <h2><span class="tag bad">innerHTML</span></h2>
+        <pre>titulo.innerHTML = nombre;</pre>
+        <h3 class="out" id="with-html" aria-live="polite"></h3>
+        <p class="after" hidden>Lo <b>convierte en HTML</b>. Aquí solo cambia el estilo, pero con otra etiqueta podría ejecutar código en la página de quien la visita.</p>
+      </section>
+    </div>
+    <section class="card">
+      <h2>Ahora en la feria</h2>
+      <p>Abre <a href="feria-datos.html" target="_blank" rel="noopener">la feria</a>, pulsa F12 → <b>Console</b>, predice y ejecuta:</p>
+      <pre>puestos.push({ nombre: "&lt;i&gt;Arepas&lt;/i&gt;", descripcion: "Prueba", precio: 1 });
+pintar(puestos);</pre>
+    </section>
+    <p class="card after" hidden><b>Regla:</b> texto que escribe una persona → siempre <code>textContent</code>.</p>
+  </main>
+  <script>
+    // Only the three fixed names above are rendered with innerHTML: nothing typed by a visitor reaches it.
+    let name = "";
+    const chosen = document.getElementById("chosen");
+    document.querySelectorAll("[data-name]").forEach((button) => button.addEventListener("click", () => {
+      name = button.dataset.name;
+      document.querySelectorAll("[data-name]").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      chosen.textContent = `const nombre = "${name}";`;
+      document.getElementById("with-text").textContent = "";
+      document.getElementById("with-html").textContent = "";
+    }));
+    document.getElementById("paint").addEventListener("click", () => {
+      if (!name) { chosen.textContent = "Primero elige un nombre."; return; }
+      document.getElementById("with-text").textContent = name;
+      document.getElementById("with-html").innerHTML = name;
+      document.querySelectorAll(".after").forEach((p) => { p.hidden = false; });
+    });
+  </script>
+</body>
+</html>

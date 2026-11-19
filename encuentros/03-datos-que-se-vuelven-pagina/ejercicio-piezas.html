@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuatro piezas del JavaScript de hoy</title>
+  <link rel="stylesheet" href="ejercicio.css">
+</head>
+<body>
+  <header><b>Cuatro piezas del JavaScript de hoy</b><a href="./">Material del encuentro</a></header>
+  <main>
+    <h1>Predice y luego ejecuta</h1>
+    <p class="lead">Antes de pulsar cada botón, di qué crees que va a salir.</p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>1 · let o const</h2>
+        <pre>const sala = "Sala 1";
+sala = "Sala 2";</pre>
+        <button type="button" data-run="0">Ejecutar</button>
+        <pre>let precios = [4000, 25000, 3000];
+precios = precios.filter((p) =&gt; p &lt; 5000);
+precios;</pre>
+        <button type="button" data-run="1">Ejecutar</button>
+        <p class="out" data-out="0-1" aria-live="polite"></p>
+        <p class="after" hidden><b>const</b> no deja <b>reasignar</b>; <b>let</b> sí.</p>
+      </section>
+
+      <section class="card">
+        <h2>2 · Función flecha</h2>
+        <pre>const conIva = (precio) =&gt; precio * 1.19;
+conIva(4000);</pre>
+        <button type="button" data-run="2">Ejecutar</button>
+        <p class="out" data-out="2" aria-live="polite"></p>
+        <p class="after" hidden>Una función guardada en una variable: recibe <code>precio</code> y devuelve el resultado.</p>
+      </section>
+
+      <section class="card">
+        <h2>3 · Desestructurar</h2>
+        <pre>const puesto = { nombre: "Huerta El Rodeo", precio: 3000, categoria: "Plantas" };
+const { nombre, precio } = puesto;
+nombre;</pre>
+        <button type="button" data-run="3">Ejecutar</button>
+        <p class="out" data-out="3" aria-live="polite"></p>
+        <p class="after" hidden>Saca del objeto solo lo que vas a usar. Así empieza <code>crearTarjeta</code>.</p>
+      </section>
+
+      <section class="card">
+        <h2>4 · Plantilla</h2>
+        <pre>const precio = 3000;
+`Desde $${precio}`;</pre>
+        <button type="button" data-run="4">Ejecutar</button>
+        <p class="out" data-out="4" aria-live="polite"></p>
+        <p class="after" hidden>Comillas invertidas (<code>`</code>) y huecos <code>${ }</code> donde va un dato.</p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Ahora en la feria</h2>
+      <p>Abre <a href="feria-datos.html" target="_blank" rel="noopener">la feria</a>, pulsa F12 → <b>Console</b> y predice antes de cada Enter:</p>
+      <pre>lista = 5;</pre>
+      <pre>puestos.push({ nombre: "Prueba", descripcion: "Un puesto nuevo", precio: 1000 });
+pintar(puestos);</pre>
+      <p>En la feria, <code>lista</code> es <code>const</code> y <code>puestos</code> es una lista: ¿qué cambia entre reemplazar y agregar?</p>
+    </section>
+  </main>
+  <script>
+    // Each button runs the snippet shown above it, exactly as written.
+    const snippets = [
+      () => { const sala = "Sala 1"; sala = "Sala 2"; return sala; },
+      () => { let precios = [4000, 25000, 3000]; precios = precios.filter((p) => p < 5000); return precios; },
+      () => { const conIva = (precio) => precio * 1.19; return conIva(4000); },
+      () => { const puesto = { nombre: "Huerta El Rodeo", precio: 3000, categoria: "Plantas" }; const { nombre, precio } = puesto; return nombre; },
+      () => { const precio = 3000; return `Desde $${precio}`; },
+    ];
+    const outputFor = (i) => document.querySelector(`[data-out="${i}"]`) || document.querySelector('[data-out="0-1"]');
+    document.querySelectorAll("[data-run]").forEach((button) => button.addEventListener("click", () => {
+      const i = Number(button.dataset.run);
+      const out = outputFor(i);
+      const note = button.closest(".card").querySelector(".after");
+      if (note) note.hidden = false;
+      try {
+        out.classList.remove("error");
+        out.textContent = "→ " + JSON.stringify(snippets[i]());
+      } catch (e) {
+        out.classList.add("error");
+        out.textContent = `Error: ${e.message}`;
+      }
+    }));
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuando un selector dice null</title>
+  <link rel="stylesheet" href="ejercicio.css">
+</head>
+<body>
+  <header><b>Cuando un selector dice null</b><a href="./">Material del encuentro</a></header>
+  <main>
+    <h1>La misma feria, una palabra de diferencia</h1>
+    <p class="lead">Las dos páginas usan el mismo <code>feria-datos.js</code>. Solo cambia la línea del script en el <code>&lt;head&gt;</code>.</p>
+    <div class="grid">
+      <section class="card">
+        <h2><span class="tag bad">Sin defer</span></h2>
+        <pre>&lt;script src="feria-datos.js"&gt;&lt;/script&gt;</pre>
+        <iframe src="feria-null.html" title="Feria con el script sin defer"></iframe>
+        <p><a href="feria-null.html" target="_blank" rel="noopener">Ábrela sola</a>, pulsa F12 → Console y lee el error: <code>null</code> quiere decir «no encontré nada».</p>
+      </section>
+      <section class="card">
+        <h2><span class="tag good">Con defer</span></h2>
+        <pre>&lt;script src="feria-datos.js" <b>defer</b>&gt;&lt;/script&gt;</pre>
+        <iframe src="feria-datos.html" title="Feria con el script con defer"></iframe>
+        <p><code>defer</code>: el script espera a que el HTML termine de cargar. Cuando busca <code>#lista-puestos</code>, ya existe.</p>
+      </section>
+    </div>
+    <section class="card">
+      <h2>Si en tu página dice null, revisa en este orden</h2>
+      <ol>
+        <li><b>¿El nombre coincide?</b> <code>#lista</code> en el JavaScript y <code>id="lista"</code> en el HTML.</li>
+        <li><b>¿Ya existía?</b> La línea del script tiene <code>defer</code>.</li>
+      </ol>
+    </section>
+  </main>
+  <script>
+    // Scroll each embedded fair to its list of stalls without moving this page.
+    document.querySelectorAll("iframe").forEach((frame) => frame.addEventListener("load", () => {
+      const target = frame.contentDocument && frame.contentDocument.getElementById("puestos");
+      if (target) frame.contentWindow.scrollTo(0, target.offsetTop - 8);
+    }));
+  </script>
+</body>
+</html>

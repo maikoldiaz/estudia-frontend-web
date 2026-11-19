@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Así está hecha la feria</title>
+  <link rel="stylesheet" href="ejercicio.css">
+  <style>
+    #code { white-space: pre; overflow-wrap: normal; max-height: 560px; font-size: 13px; line-height: 1.4; white-space: pre; }
+    .part { display: block; border-radius: 4px; }
+    .part.on { background: #fff0e3; outline: 2px solid #ff7c1a; }
+    .parts { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+    iframe { height: 560px; }
+  </style>
+</head>
+<body>
+  <header><b>Así está hecha la feria</b><a href="./">Material del encuentro</a></header>
+  <main>
+    <h1>Entrada → transformación → salida</h1>
+    <p class="lead">A la izquierda, el código real de la feria (<code>feria-datos.js</code>). A la derecha, la página que produce. Pulsa cada parte: se marca en el código y, con «Salida», también en la página.</p>
+    <div class="parts">
+      <button type="button" data-part="entrada">1 · Entrada · los datos</button>
+      <button type="button" data-part="transformacion">2 · Transformación · objeto → tarjeta</button>
+      <button type="button" data-part="salida">3 · Salida · las tarjetas que aparecen en la página</button>
+    </div>
+    <div class="grid">
+      <pre id="code" aria-live="polite">Cargando…</pre>
+      <iframe src="feria-datos.html" title="La feria que produce este código"></iframe>
+    </div>
+    <p class="card">Para verlo por dentro: en la feria, F12 → <b>Elements</b> y busca <code>&lt;div id="lista-puestos"&gt;</code>. Cada <code>&lt;article&gt;</code> salió de un objeto de la lista.</p>
+  </main>
+  <script>
+    // Shows feria-datos.js split by its numbered sections. Explanatory comments are left out on purpose:
+    // they answer questions that come later in the class.
+    const SECTIONS = { "1": "entrada", "2": "salida", "3": "transformacion", "4": "transformacion" };
+    const code = document.getElementById("code");
+    const frame = document.querySelector("iframe");
+    fetch("feria-datos.js").then((r) => (r.ok ? r.text() : Promise.reject(r.status))).then((source) => {
+      code.replaceChildren();
+      let current = null;
+      for (const raw of source.split("\n")) {
+        const header = raw.match(/^\/\/ ===== (\d)\./);
+        if (!header && /^\s*\/\//.test(raw)) continue;
+        const line = header ? raw : raw.replace(/\s+\/\/ .*$/, "");
+        if (header || !current) {
+          current = document.createElement("span");
+          current.className = "part";
+          current.dataset.part = header ? SECTIONS[header[1]] : "";
+          code.append(current);
+        }
+        current.append(line + "\n");
+      }
+    }).catch(() => { code.textContent = "No se pudo cargar el código. Ábrelo en la feria con F12 → Sources."; });
+
+    // "Salida" also outlines the cards that pintar created inside the fair.
+    const outlineCards = (on) => {
+      const doc = frame.contentDocument;
+      if (!doc) return;
+      const cards = doc.querySelectorAll("#lista-puestos article");
+      cards.forEach((card) => { card.style.outline = on ? "4px solid #ff7c1a" : ""; card.style.outlineOffset = on ? "3px" : ""; });
+      if (on && cards[0]) frame.contentWindow.scrollTo(0, doc.getElementById("lista-puestos").offsetTop - 12);
+    };
+    document.querySelectorAll("button[data-part]").forEach((button) => button.addEventListener("click", () => {
+      document.querySelectorAll("button[data-part]").forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      code.querySelectorAll(".part").forEach((p) => p.classList.toggle("on", p.dataset.part === button.dataset.part));
+      const first = code.querySelector(".part.on");
+      if (first) code.scrollTop = first.offsetTop - code.offsetTop - 8;
+      outlineCards(button.dataset.part === "salida");
+    }));
+  </script>
+</body>
+</html>
